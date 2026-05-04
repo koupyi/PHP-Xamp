@@ -13,7 +13,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>UF</th>
+                        <th>Email</th>
                         <th>Ações</th>
                     </tr>
                 </thead>

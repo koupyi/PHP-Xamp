@@ -4,10 +4,12 @@ class Conn extends PDO
 {
 
     private static $instancia;
+    //www.teste.com/banco
     private $host = "localhost";
     private $usuario = "root";
+    //usbw
     private $senha = "";
-    private $db = "bd backend";
+    private $db = "bd_backend";
 
     public function __construct()
     {

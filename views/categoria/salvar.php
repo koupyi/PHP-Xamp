@@ -1,3 +1,25 @@
+<?php
+include_once 'models/Categoria.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnsalvar'])) {
+    $categoria = new Categoria();
+    $categoria->setNome($_POST['txtnome']);
+    $categoria->setInformacoes($_POST['txtinformacoes']);
+    
+    if ($categoria->salvar()) {
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+                Categoria cadastrada com sucesso!
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+              </div>";
+    } else {
+        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                Erro ao cadastrar categoria!
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+              </div>";
+    }
+}
+?>
+
 <h3 class="mt-3 text-primary">
     Categoria
 </h3>
@@ -6,21 +28,20 @@
     <form method="post" name="formsalvar" id="formSalvar" class="m-3" enctype="multipart/form-data">
 
         <div class="form-group row">
-            <label for="inputText" class="col-sm-2 col-form-label">
+            <label for="txtnome" class="col-sm-2 col-form-label">
                 Nome
             </label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtnome" name="txtnome" placeholder="Estado"
-                    value="">
+                <input type="text" class="form-control" id="txtnome" name="txtnome" placeholder="Categoria"
+                    value="" required>
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputText" class="col-sm-2 col-form-label">
-                Sigla - UF
+            <label for="txtinformacoes" class="col-sm-2 col-form-label">
+                Informações
             </label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtsigla" name="txtsigla" placeholder="UF"
-                    value="">
+                <textarea name="txtinformacoes" id="txtinformacoes" rows="3" placeholder="Informações aqui" class="form-control" required></textarea>
             </div>
         </div>
 
@@ -31,7 +52,6 @@
                     name="btnsalvar"
                     value="Cadastrar">
             </div>
-            <!-- faltou um link aqui-->
             <a href="?p=categorias" class="btn btn-danger">Cancelar</a>
         </div>
     </form>
