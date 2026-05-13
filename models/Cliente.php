@@ -70,4 +70,18 @@ class Cliente
             return [];
         }
     }
+
+    public function listar()
+    {
+        try {
+            $this->conn = new Conn();
+            $sql = "SELECT id, nome, email FROM cliente ORDER BY id DESC";
+            $executar = $this->conn->prepare($sql);
+            $executar->execute();
+            return $executar->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            echo $erro->getMessage();
+            return [];
+        }
+    }
 }

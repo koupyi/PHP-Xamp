@@ -1,3 +1,9 @@
+<?php
+include_once '../../models/Fornecedor.php';
+$fornecedor = new Fornecedor();
+$fornecedores = $fornecedor->listar();
+?>
+
 <div class="col-sm-12 mb-4">
 
     <div class="card shadow mb-4">
@@ -18,6 +24,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($fornecedores as $f): ?>
+                        <tr>
+                            <td><?php echo $f['id']; ?></td>
+                            <td><?php echo $f['nome']; ?></td>
+                            <td><?php echo $f['cidade']; ?></td>
+                            <td>
+                                <a href="?p=edit/fornecedor&id=<?php echo $f['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                                <a href="?p=delete/fornecedor&id=<?php echo $f['id']; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

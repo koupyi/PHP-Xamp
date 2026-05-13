@@ -1,3 +1,9 @@
+<?php
+include_once '../../models/Cliente.php';
+$cliente = new Cliente();
+$clientes = $cliente->listar();
+?>
+
 <div class="col-sm-12 mb-4">
 
     <div class="card shadow mb-4">
@@ -18,6 +24,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($clientes as $c): ?>
+                        <tr>
+                            <td><?php echo $c['id']; ?></td>
+                            <td><?php echo $c['nome']; ?></td>
+                            <td><?php echo $c['email']; ?></td>
+                            <td>
+                                <a href="?p=edit/clientes&id=<?php echo $c['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                                <a href="?p=delete/clientes&id=<?php echo $c['id']; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

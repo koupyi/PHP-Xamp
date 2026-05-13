@@ -70,4 +70,18 @@ class Fornecedor
             return [];
         }
     }
+
+    public function listar()
+    {
+        try {
+            $this->conn = new Conn();
+            $sql = "SELECT id, nome, cidade FROM fornecedor ORDER BY id DESC";
+            $executar = $this->conn->prepare($sql);
+            $executar->execute();
+            return $executar->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            echo $erro->getMessage();
+            return [];
+        }
+    }
 }
