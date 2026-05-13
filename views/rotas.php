@@ -1,11 +1,11 @@
  <?php
     $paginasPermitidas = [
-        'index' => 'pagina-inicial.php',
-        'home' => 'pagina-inicial.php',
-        'categorias' => 'categoria/consultar.php',
-        'add/categoria' => 'categoria/salvar.php',
-        'fornecedor' => 'fornecedor/consultar.php',
-        'add/fornecedor' => 'fornecedor/salvar.php',
-        'clientes' => 'clientes/consultar.php',
-        'add/clientes' => 'clientes/salvar.php',
+        'index' => 'views/pagina-inicial.php',
+        'home' => 'views/pagina-inicial.php',
+        'categorias' => 'views/categoria/consultar.php',
+        'add/categoria' => 'views/categoria/salvar.php',
+        'fornecedor' => 'views/fornecedor/consultar.php',
+        'add/fornecedor' => 'views/fornecedor/salvar.php',
+        'clientes' => 'views/clientes/consultar.php',
+        'add/clientes' => 'views/clientes/salvar.php',
     ];

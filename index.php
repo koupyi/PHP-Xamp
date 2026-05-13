@@ -1,5 +1,5 @@
 <?php
-include_once 'cabecalho.php';
+include_once 'views/cabecalho.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ include_once 'cabecalho.php';
 
 <body>
 
-    <?php include_once 'navbar.php'; ?>
+    <?php include_once 'views/navbar.php'; ?>
 
     <div class="container">
         <div class="row mt-3">
@@ -26,7 +26,7 @@ include_once 'cabecalho.php';
                 $pagina = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_SPECIAL_CHARS);
 
                 // Define páginas permitidas (lista branca)
-                include_once 'rotas.php';
+                include_once 'views/rotas.php';
 
                 // Página padrão
                 if (empty($pagina)) {
